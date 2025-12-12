@@ -1,6 +1,6 @@
 # Migraine Relief Scripts
 
-Quick scripts to optimize your Windows computer settings when you have a migraine.
+Quick scripts to optimize your computer settings when you have a migraine. Available for both Windows and Mac!
 
 ## What it does
 
@@ -30,43 +30,73 @@ Quick scripts to optimize your Windows computer settings when you have a migrain
 
 ## Usage
 
-### From WSL/Linux terminal:
+### Windows (from WSL/Linux terminal):
 ```bash
 # Notify your team first (if leaving work)
-notify-team
+./notify-team.sh
 
 # For regular migraine
-migraine
+./migraine-mode.sh
 
 # For bad migraine (includes zoom increase)
-migraine-extra
+./migraine-extra.sh
 
 # When feeling better
-restore-normal
+./restore-normal.sh
 ```
 
-### From Windows (create shortcuts):
+### Mac (from Terminal):
+```bash
+# Notify your team first (if leaving work)
+./notify-team-mac.sh
+
+# For regular migraine
+./migraine-mode-mac.sh
+
+# For bad migraine (includes zoom increase)
+./migraine-extra-mac.sh
+
+# When feeling better
+./restore-normal-mac.sh
+```
+
+## Getting Started
+
+### For Windows Users:
+1. Clone this repository to your WSL/Linux environment
+2. Make scripts executable: `chmod +x *.sh`
+3. Run the scripts from your WSL terminal
+
+**Optional - Create Windows Desktop Shortcuts:**
 1. Right-click on your desktop → New → Shortcut
-2. Enter location: `wsl.exe bash -c "cd ~/testing/migraine && ./migraine-mode.sh; read -p 'Press Enter to close'"`
+2. Enter location: `wsl.exe bash -c "cd ~/migraine-script && ./migraine-mode.sh; read -p 'Press Enter to close'"`
 3. Name it "Migraine Mode"
 4. Repeat for restore-normal.sh
 
-## Making scripts executable
+### For Mac Users:
+1. Clone this repository: `git clone https://github.com/SophCarp/migraine-script.git`
+2. Navigate to the folder: `cd migraine-script`
+3. Make scripts executable: `chmod +x *-mac.sh`
+4. Run the Mac scripts (those ending in `-mac.sh`)
 
-```bash
-chmod +x migraine-mode.sh restore-normal.sh
-```
+**Note for Mac:** Some features may require accessibility permissions:
+- Go to System Settings → Privacy & Security → Accessibility
+- Grant Terminal access when prompted
 
 ## Customization
 
 ### Configure team notifications
-Edit `notify-team.sh` and update:
+Edit `notify-team.sh` (Windows) or `notify-team-mac.sh` (Mac) and update:
 - `MANAGER_EMAIL` - Your manager's email
 - `BACKUP_PERSON_EMAIL` - Colleague to CC
 - `MESSAGE` - Your out-of-office message
 
 ### Adjust migraine mode settings
-Edit `migraine-mode.sh` to adjust:
+Edit the appropriate script for your OS:
+- **Windows:** `migraine-mode.sh`, `migraine-extra.sh`, `restore-normal.sh`
+- **Mac:** `migraine-mode-mac.sh`, `migraine-extra-mac.sh`, `restore-normal-mac.sh`
+
+You can customize:
 - Brightness levels (default: 20% for migraine, 80% for normal)
 - Display zoom (default: 150% for migraine, 100% for normal)
 - Which apps to close
